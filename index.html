@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ege Kağan Danacı - Siber Güvenlik Öğrencisi & Yazılım Geliştirici. Sızma testi, web uygulama güvenliği ve güvenli uygulama geliştirme alanlarında uzmanlaşıyor." />
+  <meta name="keywords" content="Ege Kağan Danacı, Siber Güvenlik, Sızma Testi, Web Güvenliği, Geliştirici, Python, C++, Linux" />
+  <meta name="author" content="Ege Kağan Danacı" />
+  <meta name="theme-color" content="#00ff88" />
+  <meta property="og:title" content="Ege Kağan Danacı | Siber Güvenlik Öğrencisi" />
+  <meta property="og:description" content="Siber Güvenlik Öğrencisi & Yazılım Geliştirici — sızma testi ve güvenli uygulama geliştirme üzerine çalışıyor." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  <title>Ege Kağan Danacı | Siber Güvenlik & Pentest</title>
+</head>
+<body>
+
+<!-- Scanline overlay -->
+<div class="scanline"></div>
+<div class="noise-overlay"></div>
+
+<!-- ============ INTRO ============ -->
+<div id="intro-screen">
+  <div class="intro-lightning"></div>
+  <div class="intro-edge-glow"></div>
+  <div class="intro-grid-lines">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <h1 class="intro-name" id="introName"></h1>
+  <p class="intro-role">
+    SIBER GÜVENLİK ÖĞRENCİSİ — STAJYER.<br />
+    ZAAFİYET TESPİTİ - HOBİ AMAÇLI PROJELER - YAZILIM GELİŞTİRME
+  </p>
+  <div class="intro-dot"></div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar" class="navbar">
+  <div class="container nav-container">
+    <a href="#home" class="logo" aria-label="Ege Kağan Danacı Home">
+      <span class="logo-symbol">&lt;</span>
+      <span class="logo-text">EGE KAĞAN</span>
+      <span class="logo-accent">DANACI</span>
+      <span class="logo-symbol">/&gt;</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link"><span class="link-number">01.</span>Ana Sayfa</a></li>
+      <li><a href="#about" class="nav-link"><span class="link-number">02.</span>Hakkımda</a></li>
+      <li><a href="#skills" class="nav-link"><span class="link-number">03.</span>Yetenekler</a></li>
+      <li><a href="#projects" class="nav-link"><span class="link-number">04.</span>Projeler</a></li>
+      <li><a href="#contact" class="nav-link"><span class="link-number">05.</span>İletişim</a></li>
+    </ul>
+
+    <a href="#contact" class="btn btn-primary cta-btn">İşe al</a>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-links">
+      <li><a href="#home" class="mobile-link">Ana Sayfa<span class="link-number">01</span></a></li>
+      <li><a href="#about" class="mobile-link">Hakkımda<span class="link-number">02</span></a></li>
+      <li><a href="#skills" class="mobile-link">Yetenekler<span class="link-number">03</span></a></li>
+      <li><a href="#projects" class="mobile-link">Projeler<span class="link-number">04</span></a></li>
+      <li><a href="#contact" class="mobile-link">İletişim<span class="link-number">05</span></a></li>
+      <li><a href="#contact" class="mobile-cta">Proje Başlat</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="hero section">
+  <div class="matrix-bg"></div>
+  <div class="glow-orb hero-orb-1"></div>
+  <div class="glow-orb hero-orb-2"></div>
+
+  <div class="container hero-container">
+    <div class="hero-content animate-fade-up">
+
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Çalışmaya Hazır</span>
+      </div>
+
+      <div class="name-wrapper">
+        <h1 class="name">
+          <span class="first-name">Ege Kağan</span>
+          <span class="last-name">Danacı</span>
+        </h1>
+      </div>
+
+      <div class="role-container">
+        <span class="role-prefix">&gt; </span>
+        <span class="role-text" id="typewriterRole"></span>
+        <span class="cursor-blink"></span>
+      </div>
+
+      <div class="combo-wrapper">
+        <div class="combo-card">
+          <p class="combo-placeholder" id="quotePlaceholder" aria-hidden="true"></p>
+          <p class="combo-text" id="quoteText"></p>
+        </div>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          Projeleri Gör
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          İletişime Geç
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">1</span>
+          <span class="stat-label">YIL DENEYİM</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">30+</span>
+          <span class="stat-label">CTF Çözümü</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" id="githubRepos">GitHub</span>
+          <span class="stat-label">Repolar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Holographic Terminal -->
+    <div class="hero-visual animate-fade-in">
+      <div class="radar-container" aria-hidden="true">
+        <div class="radar-circle" style="width:100px;height:100px"></div>
+        <div class="radar-circle" style="width:200px;height:200px"></div>
+        <div class="radar-circle" style="width:300px;height:300px"></div>
+        <div class="radar-circle" style="width:400px;height:400px"></div>
+        <div class="radar-sweep"></div>
+      </div>
+
+      <div class="data-stream" aria-hidden="true">
+        <div class="stream-line" style="left:10%"></div>
+        <div class="stream-line" style="left:25%"></div>
+        <div class="stream-line" style="left:40%"></div>
+        <div class="stream-line" style="left:55%"></div>
+        <div class="stream-line" style="left:70%"></div>
+        <div class="stream-line" style="left:85%"></div>
+      </div>
+
+      <div class="holo-terminal">
+        <div class="corner-accent top-left"></div>
+        <div class="corner-accent top-right"></div>
+        <div class="corner-accent bottom-left"></div>
+        <div class="corner-accent bottom-right"></div>
+        <div class="holo-scanlines"></div>
+        <div class="holo-border"></div>
+        <div class="holo-header">
+          <div class="holo-header-left">
+            <span class="holo-status"></span>
+            <span class="holo-title">SİSTEM TERMİNALİ</span>
+          </div>
+          <div class="holo-header-right">
+            <span>v2.0.26</span>
+            <span class="holo-time" id="holoTime"></span>
+          </div>
+        </div>
+        <div class="holo-body" id="holoBody"></div>
+        <div class="holo-footer">
+          <span class="holo-footer-item"><span class="pulsing-dot"></span> BAĞLANDI</span>
+          <span class="holo-footer-item">ŞİFRELEME: AES-256</span>
+          <span class="holo-footer-item">GÜVENLİK DUVARI: AKTİF</span>
+        </div>
+      </div>
+
+      <div class="floating-cmd cmd-top">$ nmap -sV hedef</div>
+      <div class="floating-cmd cmd-bottom">$ burpsuite --proxy</div>
+      <div class="port-badge">
+        <span class="port-label">PORT</span>
+        <span class="port-number">443</span>
+        <span class="port-status">OPEN</span>
+      </div>
+      <div class="cve-badge"><span class="cve-text">CVE-2026</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Kaydır</span>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section about-section">
+  <div class="hex-grid"></div>
+  <div class="container">
+    <div class="about-grid">
+      <!-- Terminal Side -->
+      <div class="terminal-wrapper animate-slide-left">
+        <div class="terminal about-terminal">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">~/about-me</span>
+          </div>
+          <div class="terminal-body">
+            <span class="terminal-line">
+              <span class="terminal-prompt">$ </span>
+              <span class="terminal-command">cat profile.txt</span>
+            </span>
+            <br><br>
+            <span class="output-section">
+              <span class="output-key">İsim:</span> Ege Kağan Danacı<br>
+              <span class="output-key">Rol:</span> Siber Güvenlik Öğrencisi<br>
+              <span class="output-key">Eğitim:</span> Siber Güvenlik<br>
+              <span class="output-key">Odak:</span> Pentest & Güvenlik & Yazılım Geliştirici<br>
+              <span class="output-key">Durum:</span> İş Arıyor<br>
+              <span class="output-key">Konum:</span> Türkiye<br>
+            </span>
+            <br>
+            <span class="terminal-line">
+              <span class="terminal-prompt">$ </span>
+              <span class="terminal-command">cat quote.txt</span>
+            </span>
+            <br><br>
+            <span class="terminal-output">
+              "Security is not a product,<br>
+              but a process."<br>
+              — Bruce Schneier
+            </span>
+          </div>
+        </div>
+        <div class="exp-badge">
+          <span class="exp-number">1</span>
+          <span class="exp-label">Yıl<br>Deneyim</span>
+        </div>
+      </div>
+
+      <!-- Content Side -->
+      <div class="about-content animate-slide-right">
+        <div class="section-header" style="text-align:center;margin-bottom:12px">
+          <span class="section-tag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Hakkımda
+          </span>
+          <h2 class="section-title">
+            <span class="gradient-text">Siber Güvenlik Öğrencisi &<br>Yazılım Geliştirici</span>
+          </h2>
+        </div>
+
+        <div class="bio-floating-card">
+          <p class="bio">
+            Ben Ege Kağan Danacı — güvenlik odaklı düşünen bir yazılım geliştiriciyim. Siber güvenlik alanında öğrenciyim ve aynı zamanda staj deneyimi kazanıyorum. Zafiyet tespiti, pentest ve güvenli yazılım geliştirme konularına tutkuyla ilgi duyuyorum. Hobim olarak kendi projelerimi geliştiriyor, CTF yarışmalarına katılıyor ve sürekli yeni şeyler öğreniyorum.
+          </p>
+        </div>
+
+        <div class="highlights-grid">
+          <div class="highlight-card primary">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="highlight-content">
+              <h3>Zafiyet Tespiti</h3>
+              <p>Web & ağ güvenliği testleri</p>
+            </div>
+          </div>
+          <div class="highlight-card accent">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="highlight-content">
+              <h3>Siber Güvenlik</h3>
+              <p>Pentest & güvenlik araştırması</p>
+            </div>
+          </div>
+          <div class="highlight-card warning">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div class="highlight-content">
+              <h3>Yazılım Geliştirici</h3>
+              <p>Python, JavaScript, Bash</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:center;margin-top:8px">
+          <a href="Ege_Kagan_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="CV İndir">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CV İndir
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section id="achievements" class="section achievements-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        Başarılar
+      </span>
+      <h2 class="section-title"><span class="gradient-text">Ödüller & Tanınma</span></h2>
+    </div>
+
+    <div class="achievement-tabs">
+      <button class="ach-tab active" data-tab="0">CTF Yarışmaları</button>
+    </div>
+
+    <div class="achievement-display" id="achievementDisplay">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="section experience-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Kariyer Yolculuğu
+      </span>
+      <h2 class="section-title"><span class="gradient-text">Deneyim & Stajlar</span></h2>
+    </div>
+
+    <div class="experience-timeline" id="experienceTimeline">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Teknik Cephane</span>
+      <h2 class="section-title"><span class="gradient-text">Yetenek Matrisi</span></h2>
+      <p class="section-subtitle">Temel yetkinliklerim ve araç setim</p>
+    </div>
+
+    <div class="skills-grid" id="skillsGrid">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+  <div class="skills-bg-gradient"></div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="section projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Çalışmalarım
+      </span>
+      <h2 class="section-title"><span class="gradient-text">Öne Çıkan Projeler</span></h2>
+      <p class="section-subtitle">
+        Güvenlik araçları ve uygulamalar — GitHub'dan canlı çekiliyor
+        <span id="projectsLoading" class="loading-text"> ⟳ Yükleniyor...</span>
+      </p>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section contact-section">
+  <div class="hex-grid"></div>
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Left Info -->
+      <div class="contact-info animate-slide-left">
+        <div class="section-header" style="text-align:left;margin-bottom:32px">
+          <span class="section-tag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            İletişime Geç
+          </span>
+          <h2 class="section-title" style="overflow:hidden;height:1.5em">
+            <span class="gradient-text lang-display" id="langDisplay">Birlikte Çalışalım</span>
+          </h2>
+        </div>
+
+        <p class="contact-description">
+          Staj, freelance çalışma ve iş birliği teklifleri için müsaitim.
+          Güvenlik değerlendirmesine ihtiyacın olsun, bir projede birlikte çalışmak isteyelim
+          ya da sadece bağlantı kuralım — her türlü mesajına açığım!
+        </p>
+
+        <div class="contact-details">
+          <div class="detail-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:egekagandanaci@gmail.com">egekagandanaci@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/egekgn" target="_blank" rel="noopener noreferrer" class="social-link primary" aria-label="GitHub">
+            <span class="social-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></span>
+            <span class="social-name">GitHub</span>
+            <span class="social-arrow">→</span>
+          </a>
+          <a href="https://www.linkedin.com/in/egekağandanacı" target="_blank" rel="noopener noreferrer" class="social-link secondary" aria-label="LinkedIn">
+            <span class="social-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+            <span class="social-name">LinkedIn</span>
+            <span class="social-arrow">→</span>
+          </a>
+          <a href="mailto:egekagandanaci@gmail.com" class="social-link accent" aria-label="Email">
+            <span class="social-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+            <span class="social-name">E-posta</span>
+            <span class="social-arrow">→</span>
+          </a>
+          <a href="https://instagram.com/ege_kgn" target="_blank" rel="noopener noreferrer" class="social-link primary" aria-label="Instagram">
+            <span class="social-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span>
+            <span class="social-name">Instagram</span>
+            <span class="social-arrow">→</span>
+          </a>
+          <a href="https://wa.me/905327888283" target="_blank" rel="noopener noreferrer" class="social-link secondary" aria-label="WhatsApp">
+            <span class="social-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+            <span class="social-name">WhatsApp</span>
+            <span class="social-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Form -->
+      <form class="contact-form animate-slide-right" id="contactForm">
+        <div class="form-header">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="form-path">~/iletisim-formu</span>
+        </div>
+        <div class="form-body">
+          <div class="form-group">
+            <label for="name"><span class="label-prompt">$</span> isim</label>
+            <input type="text" id="name" name="name" placeholder="Ad Soyad" required />
+          </div>
+          <div class="form-group">
+            <label for="email"><span class="label-prompt">$</span> e-posta</label>
+            <input type="email" id="email" name="email" placeholder="ornek@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message"><span class="label-prompt">$</span> mesaj</label>
+            <textarea id="message" name="message" placeholder="Projen veya iş birliği hakkında anlat..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            Mesaj Gönder
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo">
+          <span class="gradient-text">Ege Kağan</span><span class="footer-logo-accent"> Danacı</span>
+        </a>
+        <p class="tagline">
+          Siber Güvenlik Öğrencisi & Yazılım Geliştirici<br>
+          Türkiye
+        </p>
+      </div>
+      <nav class="footer-nav">
+        <h3>Hızlı Linkler</h3>
+        <ul>
+          <li><a href="#home">Ana Sayfa</a></li>
+          <li><a href="#about">Hakkımda</a></li>
+          <li><a href="#skills">Yetenekler</a></li>
+          <li><a href="#projects">Projeler</a></li>
+          <li><a href="#contact">İletişim</a></li>
+        </ul>
+      </nav>
+      <div class="footer-connect">
+        <h3>Bağlantı</h3>
+        <div class="footer-social">
+          <a href="https://github.com/egekgn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/egekağandanacı" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="mailto:egekagandanaci@gmail.com" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="https://instagram.com/ege_kgn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/905327888283" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© <span id="footerYear"></span> Ege Kağan Danacı. Tüm hakları saklıdır.</p>
+      <p class="made-with">Tutku &amp; azimle inşa edildi</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast-wrapper" id="toastWrapper">
+  <div class="toast hidden" id="toast">
+    <div class="toast-icon" id="toastIcon"></div>
+    <div class="toast-content">
+      <h4 class="toast-title" id="toastTitle"></h4>
+      <p class="toast-message" id="toastMessage"></p>
+    </div>
+    <button class="toast-close" id="toastClose" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay hidden" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="lightboxImage" src="" alt="Achievement" />
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
