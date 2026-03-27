@@ -37,7 +37,7 @@ const terminalLines = [
 
 const experiences = [
   {
-    role: 'Siber Güvenlik Stajyeri',
+    role: 'Siber Güvenlik Stajyeri - CyberArts',
     company: 'Staj Deneyimi',
     date: '2026 - Devam ediyor',
     skills: ['Pentest', 'Zafiyet Tespiti', 'Ağ Güvenliği', 'Raporlama', 'Infosec'],
