@@ -109,11 +109,10 @@ function runIntro() {
   const text = 'EGE KAĞAN DANACI';
   let i = 0;
 
-  // background-clip:text sadece gerçek text node ile çalışır.
-  // Bir <span> içine yazarak gradient efektini koruyoruz.
+  if (!intro || !nameEl) return;
+
   nameEl.innerHTML = '<span class="intro-name-inner"></span>';
   const inner = nameEl.querySelector('.intro-name-inner');
-
   nameEl.style.opacity = '0';
   setTimeout(() => { nameEl.style.opacity = '1'; }, 100);
 
@@ -130,14 +129,20 @@ function runIntro() {
     intro.style.transition = 'opacity 0.4s ease';
     intro.style.opacity = '0';
     setTimeout(() => {
-      intro.style.display = 'none';
+      document.body.classList.add('intro-done');
       initAfterIntro();
     }, 400);
   }, 3300);
 }
 
 function initAfterIntro() {
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  // Intro bitince smooth scroll'u tekrar aç
+  setTimeout(() => {
+    document.documentElement.classList.remove('no-smooth');
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }, 500); // Biraz daha uzun bekle Safari stabilizasyonu için
+  
+  // Artık JS ile scroll'a dokunmuyoruz.
   startTypewriter();
   startQuoteTypewriter();
   startHoloTerminal();
@@ -152,8 +157,10 @@ function initNavbar() {
   if (!navbar || !mobileMenuBtn || !mobileMenu) return;
 
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  });
+    if (navbar) {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }
+  }, { passive: true });
 
   mobileMenuBtn.addEventListener('click', () => {
     const isOpen = mobileMenu.classList.toggle('open');
@@ -166,6 +173,46 @@ function initNavbar() {
       mobileMenu.classList.remove('open');
       mobileMenuBtn.classList.remove('active');
       document.body.style.overflow = '';
+    });
+  });
+}
+
+// ─── SMOOTH ANCHOR SCROLL ─────────────────────
+function initSmoothAnchors() {
+  const navHeight = (document.querySelector('.navbar')?.offsetHeight || 80);
+  document.querySelectorAll('.section').forEach(el => { el.style.scrollMarginTop = `${navHeight}px`; });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      const startY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const rectTop = target.getBoundingClientRect().top;
+      const endY = Math.max(0, startY + rectTop - navHeight);
+      const duration = 500;
+      const ease = t => (t < 0.5) ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      const startTime = performance.now();
+      document.body.classList.add('is-scrolling');
+      const prevBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      function step(now) {
+        const elapsed = now - startTime;
+        const p = Math.min(elapsed / duration, 1);
+        const eased = ease(p);
+        const y = Math.round(startY + (endY - startY) * eased);
+        window.scrollTo(0, y);
+        if (elapsed < duration) {
+          requestAnimationFrame(step);
+        } else {
+          document.body.classList.remove('is-scrolling');
+          document.documentElement.style.scrollBehavior = prevBehavior || 'smooth';
+        }
+      }
+      requestAnimationFrame(step);
+      history.pushState(null, '', href);
     });
   });
 }
@@ -571,34 +618,50 @@ function initLightbox() {
 
 // ─── SCROLL ANIMATIONS ────────────────────────────
 function animateOnScroll() {
+  const elements = document.querySelectorAll('.animate-fade-up, .animate-slide-left, .animate-slide-right, .animate-fade-in');
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '-50px' });
+  }, observerOptions);
 
-  document.querySelectorAll('.animate-fade-up, .animate-slide-left, .animate-slide-right, .animate-fade-in').forEach(el => {
-    observer.observe(el);
+  elements.forEach(el => {
+    // Hero içindekiler zaten görünür, sadece observer'a eklemiyoruz
+    if (!el.closest('.hero')) {
+      observer.observe(el);
+    }
   });
 }
 
 // ─── INIT ─────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  // Sayfa yenilendiğinde en üste (anasayfaya) odaklanmasını garanti et
+  document.body.classList.add('js-enabled');
+  document.documentElement.classList.add('no-smooth');
+
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  window.scrollTo(0, 0);
+
+  window.scrollTo(0, 0); // Sayfa ilk yüklendiğinde en üste gitmeyi garanti et
+
   if (window.location.hash) {
-    history.replaceState(null, null, window.location.pathname + window.location.search);
+    history.replaceState(null, null, ' ');
   }
 
   const footerYear = document.getElementById('footerYear');
   if (footerYear) footerYear.textContent = new Date().getFullYear();
 
   initNavbar();
+  initSmoothAnchors();
   initLightbox();
   fetchGithubStats();
   runIntro();
