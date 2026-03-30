@@ -136,10 +136,12 @@ function runIntro() {
 }
 
 function initAfterIntro() {
-  // Intro bitince smooth scroll'u tekrar aç
   setTimeout(() => {
-    document.documentElement.classList.remove('no-smooth');
-    document.documentElement.style.scrollBehavior = 'smooth';
+    const ios = /iP(hone|od|ad)|Macintosh.*Mobile/.test(navigator.userAgent);
+    if (!ios) {
+      document.documentElement.classList.remove('no-smooth');
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
   }, 500); // Biraz daha uzun bekle Safari stabilizasyonu için
   
   // Artık JS ile scroll'a dokunmuyoruz.
@@ -208,7 +210,7 @@ function initSmoothAnchors() {
           requestAnimationFrame(step);
         } else {
           document.body.classList.remove('is-scrolling');
-          document.documentElement.style.scrollBehavior = prevBehavior || 'smooth';
+          document.documentElement.style.scrollBehavior = prevBehavior || '';
         }
       }
       requestAnimationFrame(step);

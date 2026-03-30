@@ -41,11 +41,13 @@
 /* ─── RESET ──────────────────────────────────── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-html { 
+ html { 
   scroll-behavior: smooth; 
   scroll-padding-top: 80px; 
   -webkit-text-size-adjust: 100%; 
   overflow-x: hidden; /* Safari jump fix */
+   overscroll-behavior-y: contain;
+   overscroll-behavior-x: none;
 }
 
 /* Sayfa yüklenirken smooth scroll'u devre dışı bırakmak gerekebilir */
@@ -760,6 +762,10 @@ a { color:inherit; text-decoration:none; transition:var(--transition-fast); }
   position:relative;
 }
 .exp-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.exp-card:hover { 
+  transform: translateY(-8px) scale(1.02) !important; 
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.25), var(--shadow-lg); 
+}
 .exp-card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
 .exp-icon { width:44px; height:44px; border:1px solid; border-radius:8px; display:flex; align-items:center; justify-content:center; }
 .exp-date { display:flex; align-items:center; gap:6px; font-size:.8rem; font-family:'JetBrains Mono',monospace; }
